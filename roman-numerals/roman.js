@@ -15,7 +15,7 @@ var arabicToRoman = [
   {arabic: 5, roman: 'V'},
   {arabic: 4, roman: 'IV'},
   {arabic: 1, roman: 'I'}
-]
+];
 
 function toRoman(num) {
   //Create array to push strings to
@@ -30,18 +30,18 @@ function toRoman(num) {
       //set the maxLoop value to the number of times the arabic numeral can go into the number
       var maxLoop = Math.floor(num / currArab);
       //add the roman numerabl to the romanArray and subtract it from the number to prep for the next iteration
-      for (var i = 0; i < maxLoop; i++) { 
+      for (var i = 0; i < maxLoop; i++) {
         romanArray.push(arabicToRoman[key].roman);
         num = num - currArab;
-      };
-    };
-  };
+      }
+    }
+  }
   //join the array together
   return romanArray.join('');
-};
+}
 
 
 
 
 
-module.exports = toRoman
+module.exports = toRoman;
