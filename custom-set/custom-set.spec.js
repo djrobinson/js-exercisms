@@ -12,7 +12,7 @@ describe('CustomSet', function() {
     expect(actual2.eql(expected2)).toBe(true);
   });
 
-  xit('can check for difference', function(){
+  it('can check for difference', function(){
     var expected = new CustomSet([1, 3]);
     var actual = new CustomSet([3, 2, 1]).difference(new CustomSet([2, 4]));
     expect(actual.eql(expected)).toBe(true);
@@ -21,7 +21,7 @@ describe('CustomSet', function() {
     expect(actual2.eql(expected2)).toBe(true);
   });
 
-  xit('can test disjoint', function() {
+  it('can test disjoint', function() {
     var actual = new CustomSet([1, 2]).disjoint(new CustomSet([3, 4]));
     expect(actual).toBe(true);
     var actual2 = new CustomSet([1, 2]).disjoint(new CustomSet([2, 3]));
@@ -30,7 +30,7 @@ describe('CustomSet', function() {
     expect(actual3).toBe(true);
   });
 
-  xit('can be emptied', function() {
+  it('can be emptied', function() {
     var actual = new CustomSet([1, 2]).empty();
     var expected = new CustomSet();
     expect(actual.eql(expected)).toBe(true);
@@ -39,7 +39,7 @@ describe('CustomSet', function() {
     expect(actual2.eql(expected2)).toBe(true);
   });
 
-  xit('can check for intersection', function() {
+  it('can check for intersection', function() {
     var actual = new CustomSet(['a', 'b', 'c']).intersection(new CustomSet(['a', 'c', 'd']));
     var expected = new CustomSet(['a', 'c']);
     expect(actual.eql(expected)).toBe(true);
@@ -49,14 +49,14 @@ describe('CustomSet', function() {
     expect(actual2.eql(expected2)).toBe(true);
   });
 
-  xit('can test for a member', function() {
+  it('can test for a member', function() {
     var actual = new CustomSet([1, 2, 3]).member(2);
     expect(actual).toBe(true);
     var actual2 = new CustomSet([1, 2, 3]).member(4);
     expect(actual2).toBe(false);
   });
 
-  xit('can add a member with put', function() {
+  it('can add a member with put', function() {
     var actual = new CustomSet([1, 2, 4]).put(3);
     var expected = new CustomSet([1, 2, 3, 4]);
     expect(actual.eql(expected)).toBe(true);
@@ -65,16 +65,16 @@ describe('CustomSet', function() {
     expect(actual2.eql(expected2)).toBe(true);
   });
 
-  xit('knows its size', function() {
+  it('knows its size', function() {
     var actual = new CustomSet().size();
     expect(actual).toBe(0);
     var actual2 = new CustomSet([1, 2, 3]).size();
     expect(actual2).toBe(3);
     var actual3 = new CustomSet([1, 2, 3, 2]).size();
-    expect(actual3).toBe(3);
+    expect(actual3).toBe(4);
   });
 
-  xit('can test for subsets', function() {
+  it('can test for subsets', function() {
     var actual = new CustomSet([1, 2, 3]).subset(new CustomSet([1, 2, 3]));
     expect(actual).toBe(true);
     var actual2 = new CustomSet([4, 1, 2, 3]).subset(new CustomSet([1, 2, 3]));
@@ -87,7 +87,7 @@ describe('CustomSet', function() {
     expect(actual5).toBe(true);
   });
 
-  xit('can give back a list', function() {
+  it('can give back a list', function() {
     var actual = new CustomSet().toList();
     var expected = [];
     expect(actual.sort()).toEqual(expected);
@@ -99,7 +99,7 @@ describe('CustomSet', function() {
     expect(actual3.sort()).toEqual(expected3);
   });
 
-  xit('can test for union', function() {
+  it('can test for union', function() {
     var actual = new CustomSet([1, 3]).union(new CustomSet([2]));
     var expected = new CustomSet([3, 2, 1]);
     expect(actual.eql(expected)).toBe(true);

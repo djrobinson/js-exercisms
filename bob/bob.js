@@ -7,19 +7,22 @@ var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
   inArray = input.split('');
-  capArray = input.replace(/\W+/g,'').split('');
+  capArray = input.replace(/[^A-Za-z]+/g,'').split('');
 
-  console.log(inArray[inArray.length -1]);
+  console.log(capArray);
 
   var capsLength = capArray.filter(function(letter){
     return letter.toUpperCase() === letter;
   }).length;
-  console.log("caps length: ", capsLength);
+  console.log(inArray[inArray.length - 1]);
 
-  if ( capsLength > capArray.length / 3 ) { return 'Whoa, chill out!'}
-  else if ( inArray[inArray.length - 1] === '?') { return 'Sure.'}
-  else if ( inArray[inArray.length - 1] === '.' || '!') { return 'Whatever.'}
-  else return "Fine! Be that way";
+  if ( capsLength === capArray.length && capsLength > 0  || ( capArray.indexOf('!') !== -1 && capArray.indexOf('/?') !== -1 ))
+    {return 'Whoa, chill out!'}
+  else if ( inArray[inArray.length - 1] === '?')
+    { return 'Sure.'}
+  else if ( input.replace(/\s+/g,'').split('').length > 1 )
+    { return 'Whatever.'}
+  else return "Fine. Be that way!";
 
 };
 
